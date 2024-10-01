@@ -1,0 +1,15 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default
+  name: deploy.operator.role
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods","services"]
+  verbs: ["get", "watch", "list", "create"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "watch", "list", "create"]
+- apiGroups: ["bash-operators.marcin"] # "" indicates the core API group
+  resources: ["deploycreators"]
+  verbs: ["get", "watch", "list"]

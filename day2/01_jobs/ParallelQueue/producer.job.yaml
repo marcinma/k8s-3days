@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: producer
+  labels:
+    project: workshop
+spec:
+  backoffLimit: 0
+  parallelism: 1
+  completions: 1
+  template:
+    metadata:
+      labels:
+        project: workshop
+        type: producer
+    spec:
+      containers:
+        - name: producer
+          image: marcinmakowski/kubernetes:python-redis-consumer-producer
+          env:
+            - name: IS_CONSUMER
+              value: "FALSE"
+            - name: REDIS_HOST
+              value: "redis-service"
+            - name: REDIS_PORT
+              value: "6379"
+      restartPolicy: Never
+
+

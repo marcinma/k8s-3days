@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolling-probes
+  labels:
+    app: rolling
+spec:
+  replicas: 5
+  minReadySeconds: 20 # will wait 20 seconds before marking this as ready
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: rolling
+  template:
+    metadata:
+      name: rolling-pod
+      labels:
+        app: rolling
+        version: v3
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        env:
+          - name: TESTENV
+            value: "60"
+        readinessProbe:
+          httpGet:
+            path: /not-existing
+            port: 80
+          periodSeconds: 2
+          initialDelaySeconds: 2
