@@ -16,6 +16,9 @@ kubectl get service
 Node port is exposed on each worker node
 ```sh
 kubectl exec -ti myapp-pod -- curl <node-ip>:<node-port>
+NODE_IP=$(kubectl get nodes -l kubernetes.io/hostname=k8s-playground-worker2  -o jsonpath='{.items[0].status.addresses[0].address}')
+NODE_PORT=$(kubectl get service myapp-pod -o jsonpath='{.spec.ports[0].nodePort}')
+kubectl exec -ti myapp-pod -- curl $NODE_IP:$NODE_PORT
 ```
 
 # Expose using declarative approach
@@ -24,7 +27,6 @@ kubectl exec -ti myapp-pod -- curl <node-ip>:<node-port>
 kubectl create -f service.yml
 kubectl exec -ti myapp-pod -- curl my-app-service
 kubectl exec -ti myapp-pod -- curl my-app-service.default.svc.cluster.local
-
 kubectl exec -ti myapp-pod -- cat /etc/resolv.conf
 ```
 
@@ -33,7 +35,7 @@ kubectl exec -ti myapp-pod -- cat /etc/resolv.conf
 ```sh
 kubectl exec -ti myapp-pod -- env
 kubectl delete pod myapp-pod
-kubectl create -f ../../06_pod/pod.yml
+kubectl create -f ../../02_pod/pod.yml
 kubectl exec -ti myapp-pod -- env
 ```
 

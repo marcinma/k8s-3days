@@ -1,7 +1,3 @@
-# Ingress minikube
-
-https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
-
 # Nginx ingress controller
 
 ```sh
@@ -10,6 +6,7 @@ kubectl get pods --namespace=ingress-nginx
 kubectl get svc -n=ingress-nginx
 
 kubectl create -f hello-app/hello.deployment.yaml
+kubectl create -f hello-app/hello.deployment1.yaml
 kubectl create -f hello-app/hello.ingress.yaml  
 
 kubectl get ing
