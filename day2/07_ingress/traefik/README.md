@@ -17,4 +17,10 @@ http://localhost:8080/dashboard/
 kubectl apply -f 04-hello-ingress.yml
 kubectl port-forward svc/traefik-web-service 8080:80
 http://localhost:8080/hello
+
+kubectl apply -f 04-hello-ingress-domain.yml
+PORT=$(kubectl get svc traefik-web-service -o jsonpath='{.spec.ports[0].nodePort}')
+IP=$(kubectl get node k8s-playground-worker -o jsonpath='{.status.addresses[0].address}')
+echo "$IP   mydomain.com" | sudo tee -a /etc/hosts
+curl mydomain.com:$PORT/traefik-ingresss
 ```              

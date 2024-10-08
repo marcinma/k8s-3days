@@ -8,6 +8,7 @@ kubectl get svc -n=ingress-nginx
 kubectl create -f hello-app/hello.deployment.yaml
 kubectl create -f hello-app/hello.deployment1.yaml
 kubectl create -f hello-app/hello.ingress.yaml  
+kubectl create -f hello-app/hello.ingress1.yaml  
 
 kubectl get ing
 PORT=$(kubectl get svc -n=ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[0].nodePort}')

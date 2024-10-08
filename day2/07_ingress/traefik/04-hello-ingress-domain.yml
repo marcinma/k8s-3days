@@ -1,12 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hello-ingress-base
+  name: hello-ingress-domain
 spec:
   rules:
-  - http:
+  - host: mydomain.com
+    http:
       paths:
-      - path: /hello
+      - path: /traefik-ingresss
         pathType: Prefix
         backend:
           service:

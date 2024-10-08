@@ -1,7 +1,7 @@
 # Create Persistent volume claim with volume
 
 ```sh
-kubectl apply -f deployment-pv.yaml -f  pvc-azure.yaml
+kubectl apply -f deployment-pv.yaml -f  pvc.yaml
 kubectl get pv
 kubectl get pvc
 kubectl get po
@@ -18,7 +18,7 @@ kubectl get pv
 Create onc more time
 
 ```sh
-kubectl apply -f deployment-pv.yaml -f  pvc-azure.yaml
+kubectl apply -f deployment-pv.yaml -f  pvc.yaml
 ```
 
 wait till it runs

@@ -14,6 +14,6 @@
 6. pod is still there
 7. Remove rs that _matches_ `rest` but not `db` with `--cascade=orphan`
 8. Check pods - either we have both `db` or `db` & `rest` - it is random!
-9. Scale RS that matches both to 0 - all pods except from point 4 are deleted
+9. Scale RS that matches both `db` or `rest` to 0 - all pods except one that matches just `sages` are deleted
 10. At the end delete all pods
 11. Delete also old services apart of kubernetes-service
