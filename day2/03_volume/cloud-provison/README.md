@@ -19,13 +19,14 @@ Create onc more time
 
 ```sh
 kubectl apply -f deployment-pv.yaml -f  pvc.yaml
+kubectl rollout status deploy/nginx-deployment-az01
 ```
 
 wait till it runs
 create some file in pod
 
 ```sh
-kubectl exec -ti $(kubectl get po -l app=myapp-az01 -o jsonpath='{.items[0].metadata.name}') -- /bin/sh -c 'echo "content">/usr/share/nginx/html/file'
+kubectl exec -ti $(kubectl get po -l app=myapp-az01 -o jsonpath='{.items[0].metadata.name}') -- /bin/sh -c 'echo "content">/usr/local/nginx/html/index.htm'
 kubectl delete po -l app=myapp-az01
-kubectl exec -ti $(kubectl get po -l app=myapp-az01 -o jsonpath='{.items[0].metadata.name}') -- cat /usr/share/nginx/html/file
+kubectl exec -ti $(kubectl get po -l app=myapp-az01 -o jsonpath='{.items[0].metadata.name}') -- cat /usr/local/nginx/html/index.htm
 ```

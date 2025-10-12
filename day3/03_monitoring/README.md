@@ -4,6 +4,8 @@
 curl https://get.helm.sh/helm-v3.14.4-linux-amd64.tar.gz -o helm-v3.14.4-linux-amd64.tar.gz
 tar -zxvf helm-v3.14.4-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
+rm helm-v3.14.4-linux-amd64.tar.gz
+rm -rf linux-amd64
 ```
 
 ```sh

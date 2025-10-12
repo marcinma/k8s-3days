@@ -1,9 +1,11 @@
 ```sh
 kubectl create -f redis.yaml
 kubectl create -f producer.job.yaml
+kubectl get po
 kubectl logs -f -l type=producer
 kubectl create -f parallel.job.yaml
 kubectl get job
+kubectl get po
 kubectl logs -f -l type=consumer
 kubectl get po -l type=consumer
 ```

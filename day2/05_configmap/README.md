@@ -35,19 +35,19 @@ kubectl create -f pod-config-volume-items.yaml -f pod-config-volume-subpath.yaml
 
 Check default pod
 ```sh
-kubectl exec -ti configmap-volume-pod -- ls /usr/local/nginx/html/
+kubectl exec -ti configmap-volume-pod -- ls /usr/local/nginx/html
 kubectl exec -ti configmap-volume-pod -- cat /usr/local/nginx/html/service-b.config
 ```
 
 Check pod with items
 ```sh
-kubectl exec -ti configmap-volume-items -- ls /usr/local/nginx/html/
+kubectl exec -ti configmap-volume-items -- ls /usr/local/nginx/html
 kubectl exec -ti configmap-volume-items -- cat /usr/local/nginx/html/myconfig
 ```
 
 Check pod with subpath
 ```sh
-kubectl exec -ti configmap-volume-subpath -- ls /usr/local/nginx/html/
+kubectl exec -ti configmap-volume-subpath -- ls /usr/local/nginx/html
 kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b.config
 ```
 

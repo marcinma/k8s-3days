@@ -13,7 +13,7 @@ change restartPolicy and check pods created
 ```sh
 kubectl delete -f job-restart-failure.yml
 kubectl create -f job-restart-never.yml
-kubectl get pods 
+kubectl get pods
 ```
 
 delete job

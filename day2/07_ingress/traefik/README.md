@@ -10,11 +10,12 @@ kubectl apply -f 03-whoami.yml \
               -f 04-whoami-ingress.yml
               
 kubectl port-forward svc/traefik-dashboard-service 8080:8080
-http://localhost:8080/dashboard/#/    
+http://localhost:8080/dashboard/#/
 kubectl port-forward svc/traefik-web-service 8080:80
-http://localhost:8080/dashboard/
+http://localhost:8080/
 
 kubectl apply -f 04-hello-ingress.yml
+kubectl apply -f ../hello-app/hello.deployment.yaml -f ../hello-app/hello.deployment1.yaml
 kubectl port-forward svc/traefik-web-service 8080:80
 http://localhost:8080/hello
 
@@ -22,5 +23,6 @@ kubectl apply -f 04-hello-ingress-domain.yml
 PORT=$(kubectl get svc traefik-web-service -o jsonpath='{.spec.ports[0].nodePort}')
 IP=$(kubectl get node k8s-playground-worker -o jsonpath='{.status.addresses[0].address}')
 echo "$IP   mydomain.com" | sudo tee -a /etc/hosts
-curl mydomain.com:$PORT/traefik-ingresss
+curl mydomain.com:$PORT/hello1
+curl mydomain.com:$PORT/hello
 ```              
