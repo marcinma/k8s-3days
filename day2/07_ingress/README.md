@@ -20,3 +20,10 @@ curl --resolve mydomain.com:8080:127.0.0.1 http://mydomain.com:8080/hello
 curl --resolve mydomain.com:8080:127.0.0.1 http://mydomain.com:8080
 ```
 
+
+Later:
+
+```sh
+kubectl delete -f hello-app/.
+```
+

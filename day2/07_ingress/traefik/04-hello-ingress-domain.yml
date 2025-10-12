@@ -7,10 +7,27 @@ spec:
   - host: mydomain.com
     http:
       paths:
-      - path: /traefik-ingresss
+      - path: /hello
         pathType: Prefix
         backend:
           service:
             name: hello-service
             port:
               number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-ingress-domain1
+spec:
+  rules:
+  - host: mydomain.com
+    http:
+      paths:
+      - path: /hello1
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-service1
+            port:
+              number: 80              

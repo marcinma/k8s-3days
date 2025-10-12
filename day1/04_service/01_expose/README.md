@@ -19,6 +19,8 @@ kubectl exec -ti myapp-pod -- curl <node-ip>:<node-port>
 NODE_IP=$(kubectl get nodes -l kubernetes.io/hostname=k8s-playground-worker2  -o jsonpath='{.items[0].status.addresses[0].address}')
 NODE_PORT=$(kubectl get service myapp-pod -o jsonpath='{.spec.ports[0].nodePort}')
 kubectl exec -ti myapp-pod -- curl $NODE_IP:$NODE_PORT
+curl $NODE_IP:$NODE_PORT
+kubectl exec -ti myapp-pod -- curl  myapp-pod
 ```
 
 # Expose using declarative approach

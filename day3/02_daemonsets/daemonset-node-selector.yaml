@@ -18,6 +18,6 @@ spec:
         color: red
       containers:
       - name: myapp-ds
-        image: ewoutp/docker-nginx-curl
+        image: nginx:alpine3.18
         ports:
           - containerPort: 80

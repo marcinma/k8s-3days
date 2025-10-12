@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: myapp-ds
-        image: ewoutp/docker-nginx-curl
+        image: nginx:alpine3.18
         ports:
           - containerPort: 80
         env:
