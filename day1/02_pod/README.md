@@ -22,7 +22,7 @@ kubectl proxy
 
 http://localhost:8001/api/v1/namespaces/default/pods/myapp-pod/proxy/
 
-**output**
+**output of CLI commands**
 
 ```
 pod/myapp-pod created

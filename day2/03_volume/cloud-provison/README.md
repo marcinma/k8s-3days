@@ -6,7 +6,7 @@ kubectl get pv
 kubectl get pvc
 kubectl get po
 kubectl describe pvc az01
-kubectl delete pvc az01
+kubectl delete pvc az01 # this will stuck, ctrl+c
 kubectl get pvc
 kubectl delete deploy nginx-deployment-az01
 kubectl describe pvc az01

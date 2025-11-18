@@ -9,7 +9,7 @@
 - one with label `component: rest`
 
 3. Create each replica set
-4. scale rs that matches rest to 3 replicas
+4. scale rs that matches `rest` to 3 replicas
 5. Remove rs withouth matching exppression  with `--cascade=orphan`
 6. pod is still there
 7. Remove rs that _matches_ `rest` but not `db` with `--cascade=orphan`

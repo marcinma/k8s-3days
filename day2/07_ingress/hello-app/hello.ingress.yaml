@@ -10,7 +10,7 @@ spec:
   - host: mydomain.com
     http:
       paths:
-      - pathType: ImplementationSpecific
+      - pathType: ImplementationSpecific # mydomain.com/v2/load-test  -> mydomain.com/load-test
         path: "/v2(.*)"
         backend:
           service:
